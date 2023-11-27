@@ -4,7 +4,7 @@ use std::io::BufReader;
 use std::path::{Path, PathBuf};
 use std::process::exit;
 
-use dirs::home_dir;
+use dirs_next::home_dir;
 use ssh2_config::{ParseRule, SshConfig};
 
 fn main() {

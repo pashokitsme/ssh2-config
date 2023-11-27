@@ -10,7 +10,7 @@ use std::path::{Path, PathBuf};
 use std::process::exit;
 use std::time::Duration;
 
-use dirs::home_dir;
+use dirs_next::home_dir;
 use ssh2::{MethodType, Session};
 use ssh2_config::{HostParams, ParseRule, SshConfig};
 
