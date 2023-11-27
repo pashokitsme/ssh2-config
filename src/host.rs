@@ -36,6 +36,7 @@ impl Host {
     }
 }
 
+#[allow(clippy::incorrect_partial_ord_impl_on_ord_type)]
 impl std::cmp::PartialOrd for Host {
     fn partial_cmp(&self, other: &Self) -> Option<Ordering> {
         let self_max_pattern = self.pattern.iter().max_by(|x, y| x.cmp(y));
