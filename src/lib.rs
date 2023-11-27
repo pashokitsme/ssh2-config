@@ -111,7 +111,6 @@ impl SshConfig {
         parser::SshConfigParser::parse(&mut self, reader, rules).map(|_| self)
     }
 
-    #[cfg(target_family = "unix")]
     /// Parse ~/.ssh/config file and return parsed configuration or parser error
     pub fn parse_default_file(rules: ParseRule) -> SshParserResult<Self> {
         let ssh_folder = dirs_next::home_dir()
