@@ -113,7 +113,7 @@ impl SshConfig {
 
     /// Parse ~/.ssh/config file and return parsed configuration or parser error
     pub fn parse_default_file(rules: ParseRule) -> SshParserResult<Self> {
-        let ssh_folder = dirs_next::home_dir()
+        let ssh_folder = dirs::home_dir()
             .ok_or_else(|| {
                 SshParserError::Io(io::Error::new(
                     io::ErrorKind::NotFound,

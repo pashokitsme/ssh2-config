@@ -413,7 +413,7 @@ impl SshConfigParser {
     fn parse_path_arg(s: &str) -> SshParserResult<PathBuf> {
         // Remove tilde
         let s = if s.starts_with('~') {
-            let home_dir = dirs_next::home_dir()
+            let home_dir = dirs::home_dir()
                 .unwrap_or_else(|| PathBuf::from("~"))
                 .to_string_lossy()
                 .to_string();
@@ -633,7 +633,7 @@ mod test {
             .parse(&mut reader, ParseRule::STRICT)
             .unwrap();
 
-        let home_dir = dirs_next::home_dir()
+        let home_dir = dirs::home_dir()
             .unwrap_or_else(|| PathBuf::from("~"))
             .to_string_lossy()
             .to_string();
@@ -1136,7 +1136,7 @@ mod test {
 
     #[test]
     fn should_parse_path_and_resolve_tilde() {
-        let mut expected = dirs_next::home_dir().unwrap();
+        let mut expected = dirs::home_dir().unwrap();
         expected.push(".ssh/id_dsa");
         assert_eq!(
             SshConfigParser::parse_path(vec![String::from("~/.ssh/id_dsa")])

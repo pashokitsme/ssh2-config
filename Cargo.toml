@@ -17,7 +17,7 @@ version = "0.2.2"
 
 [dependencies]
 bitflags = "^2"
-dirs-next = "2.0.0"
+dirs = "^5.0.0"
 thiserror = "^1"
 wildmatch = "^2.1"
 
